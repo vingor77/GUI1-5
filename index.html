@@ -1,0 +1,93 @@
+<!--
+    Name: Vincent Gordon
+    Email: vincent_gordon@student.uml.edu
+    Copyright (c) 2023 by Vincent.
+    Date of file creation: June 21st 2023 at 10:56 AM
+    Last updated by Vincent June 28th 2023 at 2:03 PM
+    This web page displays a one-line scrabble board, management buttons and information, scrabble tiles, and checkboxes to replace the tiles.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Scrabble</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/ui/jquery-ui-git.js"></script>
+        <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    </head>
+    <body>
+        <!--This is where the board images will populate. They are just img elements.-->
+        <div id="board"></div>
+        
+        <!--
+            This is where the meat of the content is. It holds the hand, displays info, and shows past words.
+            I chose to do a table since it made styling it easier.
+        -->
+        <table id="info">
+            <tr>
+                <td>
+                    <!--
+                        The id may be hand, but it holds everything to do with hand manipulation as well.
+                        This includes replacing tiles and choosing what letter the blank tile is.
+                        The tiles and checks divs get dynamically filled.
+                    -->
+                    <div id="hand">
+                        <h2>Your hand:</h2>
+                        <div id="tiles"></div>
+                        <div id="checks"></div>
+                        <button type="button" id="change" class="btn btn-success">Replace selected tiles</button>
+                        <button type="button" id="changeHand" class="btn btn-danger">Replace all tiles</button>
+
+                        <div id="changeConfirm">
+                            <p id="replaceP">Are you sure you want to replace tiles?</p>
+                            <button type="button" id="confirm" class="btn btn-success">Confirm</button>
+                            <button type="button" id="deny" class="btn btn-danger">deny</button>
+                        </div>
+
+                        <div id="blankTile">
+                            <label for="blank">Enter blank tile letter:</label>
+                            <input type="text" size="1" maxlength="1" id="blank" name="blank">
+                            <button type="button" id="changeBlank" class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <!--
+                        This section is what runs the game. Submitting a word, resetting the game, and information displaying (including 'errors').
+                        This is the only non-dynamic(in terms of adding/removing elements) section.
+                    -->
+                    <div id="management">
+                        <button type="button" id="submit" class="btn btn-primary">Submit word</button>
+                        <button type="button" id="reset" class="btn btn-danger">Reset game</button>
+                        <p id="error"></p>
+                        <p id="tilesLeft"></p>
+                        <p id="score">Score: 0</p>
+                        <p id="totalScore">Total score: 0</p>
+                        <P id="word">Current word:</P>
+                    </div>
+                </td>
+                <td>
+                    <!--A simple table that gets filled by the words and values. This is all dynamic as well.-->
+                    <div id="prevWords">
+                        <p>Previous words:</p>
+                        <table id="words">
+                            <tr>
+                                <th>Word</th>
+                                <th>Value</th>
+                            </tr>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+        </div>
+        
+        <script src="js/function.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+</html>

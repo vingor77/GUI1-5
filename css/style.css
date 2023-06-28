@@ -1,0 +1,100 @@
+/*
+    Name: Vincent Gordon
+    Email: vincent_gordon@student.uml.edu
+    Copyright (c) 2023 by Vincent.
+    Date of file creation: June 21st 2023 at 10:56 AM
+    Last updated by Vincent June 28th 2023 at 2:03 PM
+    This simply styles the page.
+*/
+
+body {
+    background-color: black;
+    color: white;
+}
+
+/*Board sections*/
+#board {
+    border: 1px solid white;
+    margin-bottom: 10px;
+    width: 1502px; /*Width of 1502 because of 1px border (both sides)*/
+}
+
+/*This is the individual board images.*/
+.droppable {
+    width: 100px;
+    height: 100px;
+}
+/*End board*/
+
+/*Hand section*/
+#hand {
+    text-align: center;
+    border: 1px solid white;
+    height: 400px;
+    /*
+        1496 due to the border around the hand, management, and previous word 1px borders, adding to 6 px.
+        Divided by 2 so it takes half of it.
+    */
+    width: calc(1496px / 2);
+}
+
+.draggable {
+    width: 100px;
+    height: 100px;
+}
+
+#checks label {
+    margin-left: 15px;
+}
+
+#checks input {
+    margin-right: 20px;
+}
+/*End hand*/
+
+/*Management section.*/
+#management {
+    text-align: center;
+    border: 1px solid white;
+    height: 400px;
+    width: 550px;
+    padding: 10px;
+    /*
+        1496 due to the border around the hand, management, and previous word 1px borders, adding to 6 px.
+        Divided by 4 so it takes a quarter of it.
+    */
+    width: calc(1496px / 4);
+}
+
+#error {
+    color: red;
+}
+/*End management*/
+
+/*Previous word section*/
+#prevWords {
+    text-align: center;
+    border: 1px solid white;
+    height: 400px;
+    /*
+        1496 due to the border around the hand, management, and previous word 1px borders, adding to 6 px.
+        Divided by 4 so it a quarter of it.
+    */
+    width: calc(1496px / 4);
+}
+
+/*This styles the table for past words. Open-ended table with a border under the headers and between the columns.*/
+#words {
+    margin-left: auto;
+    margin-right: auto;
+    width: 150px;
+}
+
+#words tr td:last-child {
+    border-left: 1px solid white;
+}
+
+#words th {
+    border-bottom: 1px solid white;
+}
+/*End previous word*/
