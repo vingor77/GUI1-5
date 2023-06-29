@@ -578,7 +578,6 @@ $(function () {
     $('#submit').on("click", () => {
         if(!isBlankOpen()) {
             if(tilesOnBoard.length > 0) {
-                console.log("uh");
                 if(tilesOnBoard.length <= totalLeft) {
                     var ids = [];
                     for(var i = 0; i < tilesOnBoard.length; i++) {

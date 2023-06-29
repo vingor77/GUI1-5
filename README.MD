@@ -1,5 +1,5 @@
 This is a simple one-line scrabble board project made for GUI 1 homework 5. It utilizes Jquery UI draggable and droppable objects.
-Below are the features fully implemented, followed by strech features that was unfortunately not included.
+Below are the features fully implemented, followed by stretch features that was unfortunately not included.
 
 The required features included are:
 - Proper scrabble tile distribution.
@@ -20,9 +20,13 @@ The extra features included are:
 - Replace all tiles in hand.
 - Replace selected tiles in hand.
 - Previous turn words are displayed with the score acquired attached.
+- Indicate what board spaces are legal through css opacity changes when a tile is grabbed.
 - Per scrabble rules, add 50 points if the word is 7 letters long.
 - Per scrabble rules, subtract the value of the tiles left in hand when no more tiles are available. When the game ends essentially.
 
 Features I was not able to implement in time:
 - Full scrabble board
 - Dictionary verification
+
+Github repository: https://github.com/vingor77/GUI1-5
+Github pages website: https://vingor77.github.io/GUI1-5/
