@@ -1,5 +1,5 @@
 This is a simple one-line scrabble board project made for GUI 1 homework 5. It utilizes Jquery UI draggable and droppable objects.
-Below are the features fully implemented, followed by strech features that was unfortunately not included.
+Below are the features fully implemented, followed by stretch features that was unfortunately not included.
 
 The required features included are:
 - Proper scrabble tile distribution.
