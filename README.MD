@@ -25,7 +25,7 @@ The extra features included are:
 - Per scrabble rules, subtract the value of the tiles left in hand when no more tiles are available. When the game ends essentially.
 
 Features I was not able to implement in time:
-- Full scrabble board
+- Full scrabble board 
 - Dictionary verification
 
 Github repository: https://github.com/vingor77/GUI1-5
