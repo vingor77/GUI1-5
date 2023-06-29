@@ -28,5 +28,5 @@ Features I was not able to implement in time:
 - Full scrabble board 
 - Dictionary verification
 
-Github repository: https://github.com/vingor77/GUI1-5
+Github repository: https://github.com/vingor77/GUI1-5  
 Github pages website: https://vingor77.github.io/GUI1-5/
