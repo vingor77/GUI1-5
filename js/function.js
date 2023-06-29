@@ -278,7 +278,7 @@ $(function () {
                 //Third, it calculates the score based on the board piece type and whether DW is active or not.
                 drop: function(event, ui) {
                     if(!isBlankOpen()) {
-                        //If the tile is dropped, then there is no problems. 
+                        //If the tile is dropped, then there is no problems.
                         $('#error').text("");
 
                         var letter = document.getElementById(ui.draggable.prop('id')).getAttribute("src").slice(27, 34);
