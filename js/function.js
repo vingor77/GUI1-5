@@ -69,7 +69,7 @@ $(function () {
             //Create the image element and append based on change variable.
             //Then make the element draggable.
             var img = document.createElement("img");
-            img.setAttribute("src", "Board_pieces/Scrabble_Tile_" + tile.letter + ".jpg")
+            img.setAttribute("src", "Tiles/Scrabble_Tile_" + tile.letter + ".jpg")
             img.setAttribute("class", "ui-widget-content draggable");
             img.setAttribute("id", "img" + i);
             if(change == "c") {
@@ -281,7 +281,7 @@ $(function () {
                         //If the tile is dropped, then there is no problems.
                         $('#error').text("");
 
-                        var letter = document.getElementById(ui.draggable.prop('id')).getAttribute("src").slice(27, 34);
+                        var letter = document.getElementById(ui.draggable.prop('id')).getAttribute("src").slice(20, 30);
                         var dragID = ui.draggable.prop('id');
 
                         if(letter.length > 5) {
