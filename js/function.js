@@ -67,7 +67,7 @@ $(function () {
             totalLeft--;
     
             //Create the image element and append based on change variable.
-            //Then make the element draggable.
+            //Then make the element draggable. 
             var img = document.createElement("img");
             img.setAttribute("src", "Tiles/Scrabble_Tile_" + tile.letter + ".jpg")
             img.setAttribute("class", "ui-widget-content draggable");
