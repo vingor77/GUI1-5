@@ -21,6 +21,7 @@ The extra features included are:
 - Replace selected tiles in hand.
 - Previous turn words are displayed with the score acquired attached.
 - Indicate what board spaces are legal through css opacity changes when a tile is grabbed.
+- Decide what letter a blank tile should represent.
 - Per scrabble rules, add 50 points if the word is 7 letters long.
 - Per scrabble rules, subtract the value of the tiles left in hand when no more tiles are available. When the game ends essentially.
 
