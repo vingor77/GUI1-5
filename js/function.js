@@ -3,7 +3,7 @@
     Email: vincent_gordon@student.uml.edu
     Copyright (c) 2023 by Vincent.
     Date of file creation: June 21st 2023 at 10:56 AM
-    Last updated by Vincent June 28th 2023 at 2:03 PM
+    Last updated by Vincent June 29th 2023 at 11:42 AM
     This holds all of the functionality for the project. It allows for resetting of the board, replacing specific tiles, submitting words, and more.
     The page dynamically creates and removes objects while also displaying error messages for the user to correct thier mistakes.
 */
@@ -192,19 +192,20 @@ $(function () {
         word = ["", "", "", "", "", "", "", "", "", "", "", "", "", "", ""];
         placableBoard = [];
         pastWords = [];
+        tilesOnBoard = [];
         changeType = "";
 
         $('#score').text("Score: 0");
-        $('#totalScore').text("Total score: 0");
+        $('#totalScore').text("0");
         $('#word').text("Current word: ");
         $('#blankTile').hide();
         $('#change').show();
         $('#checks').show();
-        $('#pastWords').text("");
         $('#tilesLeft').text("Tiles left: " + totalLeft);
         $('#error').text("");
         $('#changeHand').show();
         $('#changeConfirm').hide();
+        $('#words').html("<tr><th>Word</th><th>Value</th></tr><tr id='scoreTable'><td>Total score:</td><td id='totalScore'>" + score + "</td></tr>");
 
         generateBoard();
         getTiles();
@@ -387,8 +388,6 @@ $(function () {
 
         //If this is the first tile placed
         if(placableBoard.length == 0) {
-            placableBoard.push(currTile);
-
             //Edge case checking. If it's at 0, or the left most side of the board, don't try to add the previous (-1) to the array.
             //This is the same but opposite for the right side, or 14, of the board.
             if(num == 0) {
@@ -411,11 +410,21 @@ $(function () {
                     if(currTile.id != "Piece14") {
                         placableBoard.push(currTile.nextElementSibling);
                     }
+
+                    var index = placableBoard.indexOf(currTile);
+                    if (index !== -1) {
+                        placableBoard.splice(index, 1);
+                    }
                 }
                 else if(currTile.nextElementSibling && prevBoardPiece[i].id == currTile.nextElementSibling.id) {
                     //Indicates left-most spot of the board.
                     if(currTile.id != "Piece0") {
                         placableBoard.push(currTile.previousElementSibling);
+                    }
+
+                    var index = placableBoard.indexOf(currTile);
+                    if (index !== -1) {
+                        placableBoard.splice(index, 1);
                     }
                 }
             }
@@ -529,6 +538,7 @@ $(function () {
         if(totalLeft == 0) {
             $('#error').text("No more tiles.");
             $('#change').hide();
+            $('#changeHand').hide();
         }
     }
 
@@ -568,6 +578,7 @@ $(function () {
     $('#submit').on("click", () => {
         if(!isBlankOpen()) {
             if(tilesOnBoard.length > 0) {
+                console.log("uh");
                 if(tilesOnBoard.length <= totalLeft) {
                     var ids = [];
                     for(var i = 0; i < tilesOnBoard.length; i++) {
@@ -598,6 +609,8 @@ $(function () {
                 if(document.getElementById('tiles').children.length < 7 && totalLeft == 0) {
                     $('#error').text("No more tiles left. Please reset game.");
                     $('#change').hide();
+                    $('#changeHand').hide();
+                    $('#checks').hide();
         
                     for(var i = 0; i < document.getElementById('tiles').children.length; i++) {
                         var letter = document.getElementById('tiles').children[i].getAttribute("src").slice(20, 30);
@@ -618,6 +631,11 @@ $(function () {
                         $('#' + document.getElementById('tiles').children[i].id).draggable("disable");
                     }
                 }
+                else {
+                    $('#change').show();
+                    $('#changeHand').show();
+                    $('#checks').show();
+                }
         
                 //Prevents the total score from going under 0...if you somehow get that low of a score.
                 if(totalScore < 0) {
@@ -637,7 +655,7 @@ $(function () {
                 tr.appendChild(tdWord);
                 tr.appendChild(tdVal);
 
-                $('#words').append(tr);
+                $('#scoreTable').before(tr);
         
                 //Reset everything to default without resetting the tiles or board.
                 score = 0;
@@ -648,15 +666,13 @@ $(function () {
                 }
                 $('#word').text("Current word: ");
                 $('#score').text("Score: 0");
-                $('#totalScore').text("Total score: " + totalScore);
-                $('#change').show();
-                $('#checks').show();
-                $('#changeHand').show();
+                $('#totalScore').text(totalScore);
         
                 for(var i = 0; i < $('#board').children().length; i++) {
                     $('#board').children(i).droppable("enable");
+                    $('#board').children(i).css("opacity", "100%");
                 }
-        
+    
                 placableBoard = [];
             }
             else {

@@ -3,7 +3,7 @@
     Email: vincent_gordon@student.uml.edu
     Copyright (c) 2023 by Vincent.
     Date of file creation: June 21st 2023 at 10:56 AM
-    Last updated by Vincent June 28th 2023 at 2:03 PM
+    Last updated by Vincent June 29th 2023 at 11:42 AM
     This simply styles the page.
 */
 
@@ -87,14 +87,39 @@ body {
 #words {
     margin-left: auto;
     margin-right: auto;
-    width: 150px;
+    width: 100%;
+    max-height: 360px;
+    overflow: auto;
+    display: block;
+    position: relative;
+    border-collapse: collapse;
+}
+
+#words > tr {
+    display: block;
 }
 
 #words tr td:last-child {
     border-left: 1px solid white;
 }
 
+#words td, #words th {
+    width: 200px;
+}
+
 #words th {
     border-bottom: 1px solid white;
+    position: sticky;
+    top: 0;
+    background: white;
+    color: black;
+}
+
+#words tr:last-child {
+    border-top: 1px solid white;
+}
+
+#words tr:last-child td {
+    border: none;
 }
 /*End previous word*/
